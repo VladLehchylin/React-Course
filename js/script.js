@@ -32,8 +32,8 @@ let checkPass = pass => {
 };
 
 loginSubmit.addEventListener('click', () => {
-    let validEmail;
-    let validPass;
+    let validEmail = false;
+    let validPass = false;
     
     if(checkEmail(email)) {
         validEmail = true;
@@ -50,8 +50,6 @@ loginSubmit.addEventListener('click', () => {
     }
 
     if(validPass && validEmail) {
-        errorEmail.classList.add('hidden');
-        errorPassword.classList.add('hidden');
         dialog.classList.remove('hide');
         dialogText.innerText = `Please confirm account creation for ${email.value}`;
     }
