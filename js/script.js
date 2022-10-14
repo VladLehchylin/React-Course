@@ -1,27 +1,28 @@
-const accountSubmit = document.getElementById('acc-submit');
-const confirmWindow = document.getElementById('confirm');
-const windowCancel = document.getElementById('acc-cancel');
-const email = document.getElementById('acc-email');
-let windowText = document.getElementById('confirm-text');
-const windowConfirm = document.getElementById('acc-confirm');
+const loginForm = document.querySelector('.login');
+const email = document.querySelector('#login-email');
+const password = document.querySelector('#login-password');
+const loginSubmit = document.querySelector('#login-submit');
+const dialog = document.querySelector('.dialog');
+const dialogCancel = document.querySelector('#dialog-cancel');
+const dialogConfirm = document.querySelector('#dialog-confirm');
 const account = document.querySelector('.account');
+
+let dialogText = document.querySelector('.dialog__text');
 let accountGreetings = document.querySelector('.account__greetings');
-const inputs = document.querySelector('.account__container');
 
-accountSubmit.addEventListener('click', () => {
-    confirmWindow.classList.add('block');
-    windowText.innerText = `Please confirm account creation for ${email.value}`;
+loginSubmit.addEventListener('click', () => {
+    dialog.classList.remove('hide');
+    dialogText.innerText = `Please confirm account creation for ${email.value}`;
 })
 
-windowCancel.addEventListener('click', () => {
-    confirmWindow.classList.remove('block');
+dialogCancel.addEventListener('click', () => {
+    dialog.classList.add('hide');
 })
 
-windowConfirm.addEventListener('click', () => {
-    confirmWindow.classList.remove('block');
-    inputs.classList.add('hide');
+dialogConfirm.addEventListener('click', () => {
+    dialog.classList.add('hide');
+    loginForm.classList.add('hide');
     accountGreetings.innerText = `Hello, user with email ${email.value}`;
     account.classList.remove('hide');
-
 })
 
